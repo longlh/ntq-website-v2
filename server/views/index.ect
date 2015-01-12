@@ -1,0 +1,42 @@
+<% extend '_share/layout.ect' %>
+
+<div class="top-menu">
+</div>
+<div class="fs-sections">
+	<section class="fs-section" style="background: brown">
+		<div class="page">
+			<h1>Section 1</h1>
+		</div>
+	</section>
+	<section class="fs-section" style="background: yellow">
+		<div class="page">
+			<h1>Section 2</h1>
+		</div>
+	</section>
+	<section class="fs-section" style="background: green">
+		<div class="page">
+			<h1>Section 3</h1>
+		</div>
+	</section>
+	<section class="fs-section" style="background: blue">
+		<div class="page">
+			<h1>Section 4</h1>
+		</div>
+	</section>
+	<section class="fs-section" style="background: red">
+		<div class="page">
+			<h1>Section 5</h1>
+		</div>
+	</section>
+</div>
+<div class="fs-navi" id="fs-navi">
+</div>
+
+<% block 'end-head' : %>
+<link rel="stylesheet" href="<%= @__css('index.css') %>">
+<% end %>
+
+
+<% block 'end-body' : %>
+<script src="<%= @__js('index.js') %>"></script>
+<% end %>

@@ -1,0 +1,5 @@
+/node_modules
+/client/vendors
+/build/public
+/build/rev.json
+/build/reports

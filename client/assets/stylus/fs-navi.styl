@@ -1,0 +1,48 @@
+@require '_define.styl'
+
+transition-time = .5s
+navi-size = 10px
+navi-size-increase = 4px
+
+*
+	-webkit-transform translate3d(0, 0, 0)
+	transform translate3d(0, 0, 0)
+
+.fs-sections
+	position fixed
+	top 0
+	left 0
+	width 100%
+	overflow hidden
+
+.fs-navi
+	position fixed
+	right navi-size * 2
+	top 0
+	transition top transition-time;
+	z-index 2
+	text-align center
+	div
+		width navi-size
+		height navi-size
+		border-radius 50%
+		background black
+		margin-top navi-size * 2
+		margin-bottom navi-size * 2
+		opacity 0.5
+		transition all transition-time;
+		cursor pointer
+	div.fs-anchor-current
+		background #ccc
+
+.fs-section
+	position absolute
+	top 0
+	width 100%
+	visibility hidden
+	z-index 1
+	transition height transition-time;
+	overflow hidden
+
+.fs-section-current
+	visibility visible
