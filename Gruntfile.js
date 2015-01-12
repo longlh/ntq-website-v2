@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 
-var assetDef = 'env/assets/assets.json',
+var assetDef = 'build/assets.json',
 	replacePatterns;
 
 module.exports = function(grunt) {
