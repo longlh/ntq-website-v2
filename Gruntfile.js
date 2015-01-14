@@ -156,7 +156,6 @@ module.exports = function(grunt) {
 			options: {
 				maxListeners: 99,
 				spawn: false,
-				reload: true,
 				interrupt: true
 			},
 			client: {
@@ -167,7 +166,7 @@ module.exports = function(grunt) {
 					'!client/assets/stylus/_define.styl',
 					'<%= jshint.client.src %>',
 				],
-				tasks: [ 'csslint', 'jshint:client', 'build', 'express:dev' ]
+				tasks: [ 'jshint:client', 'build', 'express:dev' ]
 			},
 			server: {
 				files: [
