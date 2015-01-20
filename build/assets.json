@@ -16,7 +16,6 @@
 	},
 	"css": {
 		"build/.tmp/cssmin/index.css": [
-			"build/.tmp/css/core.css",
 			"build/.tmp/css/index.css",
 			"build/.tmp/css/fs-navi.css"
 		]

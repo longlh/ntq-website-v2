@@ -1,4 +1,5 @@
 @require '_define.styl'
+@require 'core.styl'
 
 top-menu-height = 50px
 
@@ -28,12 +29,11 @@ body
 	height 100%
 
 .news-table
+	@extend .container
 	border-spacing 2px
 	width 100%
 	height 100%
-	max-width max-width
-	margin-left auto
-	margin-right auto
+
 	td {
 		background blue
 	}
@@ -50,12 +50,21 @@ body
 .section-about-us
 	background white
 
-.section-parners
+.section-partners
 	background-color #244f90
-	background-image url(home-map-partner)
-	background-repeat no-repeat
-	background-size contain
-	background-position center center
+
+	.page
+		background-image url(home-map-partner)
+		background-repeat no-repeat
+		background-position center center
+		background-size 622px 293px
+		margin-top 10px
+		height calc(100% - 20px)
+
+@media screen and (max-width: 620px)
+	.section-partners
+		.page
+			background-size contain
 
 .section-news
 	background white

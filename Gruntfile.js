@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		clean: {
 			tmp: [
-				'build/.tmp',
+				'build/.tmp/**',
 				'client/assets/stylus/_define.styl'
 			],
 			all: [
@@ -156,7 +156,8 @@ module.exports = function(grunt) {
 			options: {
 				maxListeners: 99,
 				spawn: false,
-				interrupt: true
+				interrupt: true,
+				debounceDelay: 500
 			},
 			client: {
 				files: [
@@ -166,19 +167,19 @@ module.exports = function(grunt) {
 					'!client/assets/stylus/_define.styl',
 					'<%= jshint.client.src %>',
 				],
-				tasks: [ 'jshint:client', 'build', 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'jshint:client', 'build', 'express:dev' ]
 			},
 			server: {
 				files: [
 					'<%= jshint.server.src %>'
 				],
-				tasks: [ 'jshint:server', 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'jshint:server', 'express:dev' ]
 			},
 			ect: {
 				files: [
 					'server/views/**/*.ect'
 				],
-				tasks: [ 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'express:dev' ]
 			}
 		}
 	});
