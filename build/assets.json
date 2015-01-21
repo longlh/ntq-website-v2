@@ -3,7 +3,7 @@
 		"build/.tmp/jsmin/boot.js": [
 			"client/assets/js/bootstrap.js"
 		],
-		"build/.tmp/jsmin/index.js": [
+		"build/.tmp/jsmin/home.js": [
 			"client/assets/3rd-parties/tween.min.js",
 			"client/vendors/hammerjs/hammer.min.js",
 			"client/assets/js/fs-navi.js",
@@ -15,8 +15,8 @@
 		]
 	},
 	"css": {
-		"build/.tmp/cssmin/index.css": [
-			"build/.tmp/css/index.css",
+		"build/.tmp/cssmin/home.css": [
+			"build/.tmp/css/home.css",
 			"build/.tmp/css/fs-navi.css"
 		]
 	}

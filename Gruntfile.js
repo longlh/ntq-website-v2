@@ -11,8 +11,7 @@ module.exports = function(grunt) {
 				'build/.tmp/**',
 				'client/assets/stylus/_define.styl'
 			],
-			all: [
-				'<%= clean.tmp %>',
+			build: [
 				'build/public',
 				'build/rev.json'
 			]
@@ -154,10 +153,12 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			options: {
+				reload: true,
 				maxListeners: 99,
 				spawn: false,
 				interrupt: true,
-				debounceDelay: 500
+				debounceDelay: 2000,
+				interval: 500
 			},
 			client: {
 				files: [
@@ -187,6 +188,6 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.registerTask('verify', [ 'jshint' ]);
-	grunt.registerTask('build', [ 'clean:all', 'filerev:img', 'replace', 'stylus', 'csslint','cssmin', 'uglify', 'filerev:css', 'filerev:js', 'filerev_assets', 'clean:tmp' ]);
+	grunt.registerTask('build', [ 'clean:build', 'filerev:img', 'replace', 'stylus', 'csslint', 'cssmin', 'uglify', 'filerev:css', 'filerev:js', 'filerev_assets', 'clean:tmp' ]);
 	grunt.registerTask('default', [ 'verify', 'build', 'express:dev', 'watch' ]);
 };
