@@ -1,5 +1,15 @@
 @require '_define.styl'
-@require '_reset.styl'
+@import 'kouto-swiss'
+
+meyer-reset()
+box-sizing-reset()
+normalize()
 
 body
-	font: font-size 'sans-serif'
+	font-size base-font-size
+	font-family Roboto, Arial, sans-serif
+
+.container
+	max-width max-width
+	margin-left auto
+	margin-right auto

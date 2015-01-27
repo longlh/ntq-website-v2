@@ -1,18 +1,18 @@
 'use strict';
-var path = require('path');
+var koutoSwiss = require('kouto-swiss'),
+	path = require('path');
 
-var assetDef = 'env/assets/assets.json',
+var assetDef = 'build/assets.json',
 	replacePatterns;
 
 module.exports = function(grunt) {
 	grunt.initConfig({
 		clean: {
 			tmp: [
-				'build/.tmp',
+				'build/.tmp/**',
 				'client/assets/stylus/_define.styl'
 			],
-			all: [
-				'<%= clean.tmp %>',
+			build: [
 				'build/public',
 				'build/rev.json'
 			]
@@ -63,6 +63,9 @@ module.exports = function(grunt) {
 			}
 		},
 		stylus: {
+			options: {
+				use: [ koutoSwiss ]
+			},
 			compile: {
 				files: [ {
 					src: [
@@ -156,30 +159,32 @@ module.exports = function(grunt) {
 			options: {
 				maxListeners: 99,
 				spawn: false,
-				reload: true,
-				interrupt: true
+				interrupt: true,
+				debounceDelay: 2000,
+				interval: 500
 			},
 			client: {
 				files: [
 					assetDef,
+					'<%= jshint.client.src %>',
 					'client/assets/img/**',
 					'client/assets/stylus/**/*.styl',
 					'!client/assets/stylus/_define.styl',
-					'<%= jshint.client.src %>',
+					'!build/**'
 				],
-				tasks: [ 'csslint', 'jshint:client', 'build', 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'jshint:client', 'build', 'express:dev' ]
 			},
 			server: {
 				files: [
 					'<%= jshint.server.src %>'
 				],
-				tasks: [ 'jshint:server', 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'jshint:server', 'express:dev' ]
 			},
 			ect: {
 				files: [
 					'server/views/**/*.ect'
 				],
-				tasks: [ 'express:dev' ]
+				tasks: [ 'express:dev:stop', 'express:dev' ]
 			}
 		}
 	});
@@ -187,6 +192,6 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.registerTask('verify', [ 'jshint' ]);
-	grunt.registerTask('build', [ 'clean:all', 'filerev:img', 'replace', 'stylus', 'csslint','cssmin', 'uglify', 'filerev:css', 'filerev:js', 'filerev_assets', 'clean:tmp' ]);
+	grunt.registerTask('build', [ 'clean:build', 'filerev:img', 'replace', 'stylus', 'csslint', 'cssmin', 'uglify', 'filerev:css', 'filerev:js', 'filerev_assets', 'clean:tmp' ]);
 	grunt.registerTask('default', [ 'verify', 'build', 'express:dev', 'watch' ]);
 };

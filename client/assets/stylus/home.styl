@@ -1,0 +1,87 @@
+@require '_define.styl'
+@require 'core.styl'
+
+top-menu-height = 50px
+bg-about-us-width = 890px
+bg-about-us-height = 433px
+bg-partners-width = 622px
+bg-partners-height = 293px
+
+body
+	background black
+
+.top-menu
+	position fixed
+	top 0
+	left 0
+	size 100% top-menu-height
+	line-height top-menu-height
+	background-color black
+	z-index 3
+	.logo
+		font-size 18px
+		font-size 1.3rem
+		color white
+		line-height 50px
+		font-weight 700
+		text-decoration none
+
+.page
+	display table
+	size 100% 100%
+
+.news-table
+
+	border-colapse colapse
+	size 100% 100%
+
+	td {
+		background-color black
+		background-color rgba(0, 0, 0, .5)
+		vertical-align bottom
+		text-align center
+		border 2px solid white
+	}
+
+.section-logo
+	background #eaeaea
+
+.section-services
+	background #f6da40
+
+.section-technologies
+	background #00af43
+
+.section-about-us
+	background-color white
+	background-image url(home-about-us)
+	background-position center bottom
+	background-repeat no-repeat
+	background-size bg-about-us-width bg-about-us-height
+
+
+@media screen and (max-width: bg-about-us-width), (max-height: bg-about-us-height)
+	.section-about-us
+		background-size contain
+
+.section-partners
+	background-color #244f90
+
+	.page
+		background-image url(home-map-partner)
+		background-repeat no-repeat
+		background-position center center
+		background-size bg-partners-width bg-partners-height
+		margin-top 10px
+		height calc('100% - 20px')
+
+@media screen and (max-width: bg-partners-width), (max-height: bg-partners-height)
+	.section-partners
+		.page
+			background-size contain
+
+.section-news
+	background-color #f3f3f3
+
+.section-footer
+	background-color white

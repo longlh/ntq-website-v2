@@ -64,15 +64,25 @@
 					x: 0
 				}).to({
 					x: viewportHeight
-				}, currentSection ? 500 : 0).onUpdate(function() {
+				}, currentSection ? options.transitionTime : 0).onUpdate(function() {
+					if (options.still) {
+						if (currentSection) {
+							if (direction === 1) {
+								// currentSection go down
+								section.style.top = (viewportHeight - this.x) + 'px';
+							} else {
+								// currentSection go up
+								currentSection.style.top = this.x + 'px';
+							}
+						}
+					} else {
+						section.style.top = (viewportHeight - this.x) * direction + 'px';
 
-					section.style.top = (viewportHeight - this.x) * direction + 'px';
-
-					if (currentSection) {
-						currentSection.style.top = (-this.x * direction) + 'px';
+						if (currentSection) {
+							currentSection.style.top = (-this.x * direction) + 'px';
+						}
 					}
 				}).onComplete(function() {
-
 					if (currentSection) {
 						currentSection.classList.remove('fs-section-current');
 					}
@@ -89,9 +99,12 @@
 				}).start();
 
 				section.classList.add('fs-section-current');
-				// section.style.zIndex = Number(currentSection.style.zIndex) + 1;
 
-				section.style.top = (viewportHeight * direction) + 'px';
+				if (options.still) {
+					section.style.top = ((1 + direction) / 2 * viewportHeight) + 'px';
+				} else {
+					section.style.top = (viewportHeight * direction) + 'px';
+				}
 
 				// start animation
 				state = STATE.moving;
