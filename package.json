@@ -37,6 +37,7 @@
     "grunt-filerev": "^2.1.2",
     "grunt-filerev-assets": "^0.3.2",
     "grunt-replace": "^0.8.0",
+    "kouto-swiss": "^0.11.6",
     "load-grunt-tasks": "^2.0.0"
   }
 }

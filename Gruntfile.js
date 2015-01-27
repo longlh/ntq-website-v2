@@ -1,5 +1,6 @@
 'use strict';
-var path = require('path');
+var koutoSwiss = require('kouto-swiss'),
+	path = require('path');
 
 var assetDef = 'build/assets.json',
 	replacePatterns;
@@ -62,6 +63,9 @@ module.exports = function(grunt) {
 			}
 		},
 		stylus: {
+			options: {
+				use: [ koutoSwiss ]
+			},
 			compile: {
 				files: [ {
 					src: [
@@ -153,7 +157,6 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			options: {
-				reload: true,
 				maxListeners: 99,
 				spawn: false,
 				interrupt: true,
@@ -163,10 +166,11 @@ module.exports = function(grunt) {
 			client: {
 				files: [
 					assetDef,
+					'<%= jshint.client.src %>',
 					'client/assets/img/**',
 					'client/assets/stylus/**/*.styl',
 					'!client/assets/stylus/_define.styl',
-					'<%= jshint.client.src %>',
+					'!build/**'
 				],
 				tasks: [ 'express:dev:stop', 'jshint:client', 'build', 'express:dev' ]
 			},
