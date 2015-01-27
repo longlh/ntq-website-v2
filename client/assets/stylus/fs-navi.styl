@@ -1,18 +1,15 @@
 @require '_define.styl'
+@import 'kouto-swiss'
 
-transition-time = .5s
+transition-time = .2s
 navi-size = 10px
 navi-size-increase = 4px
-
-*
-	-webkit-transform translate3d(0, 0, 0)
-	transform translate3d(0, 0, 0)
 
 .fs-sections
 	position fixed
 	top 0
 	left 0
-	width 100%
+	size 100% false
 	overflow hidden
 
 .fs-navi
@@ -23,8 +20,7 @@ navi-size-increase = 4px
 	z-index 2
 	text-align center
 	div
-		width navi-size
-		height navi-size
+		size navi-size navi-size
 		border-radius 50%
 		background black
 		margin-top navi-size * 2
@@ -38,7 +34,7 @@ navi-size-increase = 4px
 .fs-section
 	position absolute
 	top 0
-	width 100%
+	size 100% false
 	visibility hidden
 	z-index 1
 	transition height transition-time;

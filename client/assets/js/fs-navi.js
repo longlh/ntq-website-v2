@@ -64,7 +64,7 @@
 					x: 0
 				}).to({
 					x: viewportHeight
-				}, currentSection ? 500 : 0).onUpdate(function() {
+				}, currentSection ? options.transitionTime : 0).onUpdate(function() {
 					if (options.still) {
 						if (currentSection) {
 							if (direction === 1) {
