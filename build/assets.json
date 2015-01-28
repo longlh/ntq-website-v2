@@ -16,8 +16,7 @@
 	},
 	"css": {
 		"build/.tmp/cssmin/home.css": [
-			"build/.tmp/css/home.css",
-			"build/.tmp/css/fs-navi.css"
+			"build/.tmp/css/home.css"
 		]
 	}
 }

@@ -88,6 +88,8 @@
 					}
 
 					currentSection = section;
+					currentSection.classList.remove('fs-section-move');
+					currentSection.classList.add('fs-section-current');
 					state = STATE.idle;
 
 					// fire event
@@ -98,7 +100,7 @@
 					}
 				}).start();
 
-				section.classList.add('fs-section-current');
+				section.classList.add('fs-section-move');
 
 				if (options.still) {
 					section.style.top = ((1 + direction) / 2 * viewportHeight) + 'px';
