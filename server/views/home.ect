@@ -28,15 +28,42 @@
 	</section>
 	<section class="fs-section section-news">
 		<div class="page">
-			<table class="news-table">
+			<table class="news-table small-screen">
 				<tr>
-					<td colspan="2">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</td>
-					<td>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</td>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[0] } %>
+					</td>
 				</tr>
 				<tr>
-					<td>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</td>
-					<td>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</td>
-					<td>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</td>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[1] } %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[2] } %>
+					</td>
+				</tr>
+			</table>
+			<table class="news-table">
+				<tr>
+					<td colspan="2">
+						<% include '_templates/home-article.ect', { article: @articles[0] } %>
+					</td>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[1] } %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[2] } %>
+					</td>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[3] } %>
+					</td>
+					<td>
+						<% include '_templates/home-article.ect', { article: @articles[4] } %>
+					</td>
 				</tr>
 			</table>
 		</div>

@@ -12,6 +12,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.9.3",
     "body-parser": "^1.10.1",
     "ect": "^0.5.9",
     "express": "^4.10.7",

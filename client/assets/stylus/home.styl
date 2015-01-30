@@ -32,17 +32,56 @@ body
 	size 100% 100%
 
 .news-table
-
-	border-colapse colapse
+	table-layout fixed
+	border-collapse collapse
 	size 100% 100%
-
-	td {
+	td
+		position relative
+		border 2px solid white
+		overflow hidden
+		background url(home-article-noise) repeat black;
+	.home-article-background
+		position absolute
+		z-index 0
+		top 50%
+		left 50%
+		size false 100%
+		transform translate(-50%, -50%)
+		box-shadow 0 0 50px 20px black
+	.home-article
+		position absolute
+		z-index 1
+		top 0
+		left 0
+		size 100% 100%
+		overflow hidden
 		background-color black
 		background-color rgba(0, 0, 0, .5)
-		vertical-align bottom
-		text-align center
-		border 2px solid white
-	}
+		color white
+		padding em(56px, base-font-size) em(45px, base-font-size)
+		.home-article-heading
+			font-size em(25px, base-font-size)
+		.home-article-bulletin
+			padding 10px 0 10px
+			line-height em(16px, base-font-size)
+
+.news-table.small-screen
+	display none
+
+@media screen and (max-width: 799px), (max-height: 599px)
+	.news-table.small-screen
+		display table
+	.news-table
+		display none
+		.home-article
+			padding 5px 42px 5px 5px
+			.home-article-heading
+				font-size em(18px, base-font-size)
+
+@media screen and (max-height: 479px)
+	.news-table
+		tr:last-child
+			display none
 
 .section-logo
 	background #eaeaea

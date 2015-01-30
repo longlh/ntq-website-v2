@@ -6,6 +6,7 @@
 		"build/.tmp/jsmin/home.js": [
 			"client/assets/3rd-parties/tween.min.js",
 			"client/vendors/hammerjs/hammer.min.js",
+			"client/assets/js/tween-animation-frame.js",
 			"client/assets/js/fs-navi.js",
 			"client/assets/js/bootstrap.js"
 		],

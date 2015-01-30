@@ -23,7 +23,7 @@
 			state = STATE.idle;
 
 		function animate(t) {
-			TWEEN.update();
+			// TWEEN.update();
 
 			if (state === STATE.moving) {
 				requestAnimationFrame(animate);

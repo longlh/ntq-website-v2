@@ -2,8 +2,7 @@
 @require 'core.styl'
 
 transition-time = .2s
-navi-size = 10px
-navi-size-increase = 4px
+navi-size = 12px
 
 .fs-sections
 	position fixed
@@ -14,7 +13,7 @@ navi-size-increase = 4px
 
 .fs-navi
 	position fixed
-	right navi-size * 2
+	right navi-size * 1.5
 	top 0
 	transition top transition-time;
 	z-index 2
@@ -23,13 +22,14 @@ navi-size-increase = 4px
 		size navi-size navi-size
 		border-radius 50%
 		background black
-		margin-top navi-size * 2
-		margin-bottom navi-size * 2
-		opacity 0.5
+		margin-top navi-size * 1.5
+		margin-bottom navi-size * 1.5
+		opacity 0.7
 		transition all transition-time;
 		cursor pointer
 	div.fs-anchor-current
-		background #ccc
+		background white
+		box-shadow 0 0 5px 2px #000
 
 .fs-section
 	position absolute
